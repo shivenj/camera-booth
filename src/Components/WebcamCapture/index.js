@@ -1,27 +1,27 @@
-import React from 'react';
-import Webcam from 'react-webcam';
+import React from "react";
+import Webcam from "react-webcam";
 
 const videoConstraints = {
   width: 1280,
   height: 720,
-  facingMode: "user"
+  facingMode: "user",
 };
 
 const WebcamCapture = ({ onCapture }) => (
   <Webcam
     audio={false}
-    height={720}
+    height={500}
     screenshotFormat="image/jpeg"
-    width={1280}
+    width={800}
     videoConstraints={videoConstraints}
   >
     {({ getScreenshot }) => (
       <button
         onClick={() => {
-          const imageSrc = getScreenshot()
-          console.log({imageSrc})
-          onCapture(imageSrc)
+          const imageSrc = getScreenshot();
+          onCapture(imageSrc);
         }}
+        className="capture-button"
       >
         Capture photo
       </button>
